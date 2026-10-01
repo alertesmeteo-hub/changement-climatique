@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Méthode et sources — Changement climatique France</title>
+<meta name="description" content="D'où viennent les chiffres de ce site : Météo-France, trajectoire TRACC, limites de lecture, licences des données et du code." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='10' width='5' height='12' rx='1' fill='%23e2483d'/%3E%3Crect x='9.5' y='5' width='5' height='17' rx='1' fill='%23c9862f'/%3E%3Crect x='17' y='13' width='5' height='9' rx='1' fill='%232f80ed'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+<div class="top-gradient"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <svg class="brand-logo" viewBox="0 0 24 24"><rect x="2" y="10" width="5" height="12" rx="1" fill="#e2483d"/><rect x="9.5" y="5" width="5" height="17" rx="1" fill="#c9862f"/><rect x="17" y="13" width="5" height="9" rx="1" fill="#2f80ed"/></svg>
+      <span class="brand-text"><strong>Changement climatique</strong><span>France · projections TRACC</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="chaleur.html">Chaleur</a>
+      <a href="secheresse.html">Sécheresse</a>
+      <a href="feux-de-foret.html">Feux de forêt</a>
+      <a href="pluies-extremes.html">Pluies extrêmes</a>
+      <a href="methode.html" class="active">Méthode</a>
+      <a href="https://www.alertes-meteo.com" class="nav-cta" target="_blank" rel="noopener">Alertes météo ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <span class="eyebrow">Méthode</span>
+    <h1>D'où viennent ces chiffres ?</h1>
+    <p class="lede">Ce site n'a pas produit ses propres projections climatiques. Il met en forme des chiffres déjà publiés par Météo-France, région par région, pour les rendre comparables et explorables.</p>
+  </section>
+
+  <div class="card card-pad">
+    <div class="method-steps">
+      <div class="method-step">
+        <div class="num"></div>
+        <div>
+          <h3>La source : Météo-France, trajectoire TRACC</h3>
+          <p>Chaque chiffre provient des fiches officielles « Quel climat futur dans votre région ? » publiées par Météo-France (meteofrance.com), construites à partir de la Trajectoire de Réchauffement de référence pour l'Adaptation au Changement Climatique (TRACC). Cette trajectoire correspond à un réchauffement moyen en France d'environ +2,7 °C en 2050 et +4 °C en 2100 par rapport à l'ère préindustrielle — les deux horizons utilisés sur ce site.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="num"></div>
+        <div>
+          <h3>Une maille régionale, pas départementale ou communale</h3>
+          <p>Météo-France publie ces indicateurs à l'échelle de chacune des 13 régions métropolitaines. Ce site reste à cette maille : il ne recalcule rien à partir des données brutes DRIAS (grille de 8 km), qui nécessiteraient un traitement géospatial spécifique. À l'intérieur d'une région, les écarts entre départements peuvent être significatifs (ils sont d'ailleurs parfois mentionnés dans les fiches sources).</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="num"></div>
+        <div>
+          <h3>Quatre indicateurs, un par module</h3>
+          <p><b>Chaleur</b> — jours à 35 °C ou plus, nuits « chaudes » (minimale &gt; 20 °C). <b>Sécheresse</b> — jours de sol sec, évolution de la pluie d'été. <b>Feux de forêt</b> — jours de danger météo d'incendie élevé. <b>Pluies extrêmes</b> — évolution de l'intensité des précipitations les plus fortes de l'année. Toutes les valeurs sont des moyennes annuelles régionales par rapport à la période de référence 1976-2005.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="num"></div>
+        <div>
+          <h3>Le fond de carte</h3>
+          <p>Les contours des régions proviennent du dépôt open data <a href="https://github.com/gregoiredavid/france-geojson" target="_blank" rel="noopener">france-geojson</a> (source IGN Admin Express, Licence Ouverte Etalab 2.0). Le fond de plan est fourni par CARTO (style « light, sans étiquettes »). La carte est affichée avec la bibliothèque Leaflet.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="num"></div>
+        <div>
+          <h3>Vue complémentaire commune par commune</h3>
+          <p>La page <a href="pluies-extremes-communes.html">Pluies par commune</a> sort du cadre des fiches régionales Météo-France : ses chiffres sont calculés directement par ce site à partir des sorties brutes du modèle climatique régional <b>ALADIN63</b> (Météo-France / CNRM, trajectoire TRACC-2023), téléchargées sur le portail <a href="https://www.drias-climat.fr/" target="_blank" rel="noopener">DRIAS</a>. Les valeurs annuelles de chaque point de grille (~9 000 points, résolution 8 km) sont moyennées sur les ~20 ans de chaque horizon, puis chaque commune reprend la valeur du point de grille le plus proche — des communes voisines peuvent donc partager la même valeur. N'étant basée que sur un seul modèle (et non une moyenne multi-modèles comme les fiches régionales officielles), cette vue peut s'écarter localement des chiffres régionaux ; elle ne couvre que les pluies, pas les autres aléas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-pad" style="margin-top:20px">
+    <h2>Précautions de lecture</h2>
+    <div class="caution-list">
+      <div class="caution-item"><span>—</span><div><b>Des moyennes régionales.</b> Une région entière peut afficher une valeur modérée tout en cachant des zones bien plus exposées (littoral, montagne, sud d'une région...).</div></div>
+      <div class="caution-item"><span>—</span><div><b>Des projections, pas des prévisions.</b> Ces chiffres décrivent une tendance climatique de fond selon un scénario de référence ; ils ne prédisent pas la météo d'une année donnée.</div></div>
+      <div class="caution-item"><span>—</span><div><b>Des données manquantes assumées.</b> Quand une fiche régionale ne publie pas de valeur pour un indicateur ou un horizon donné, ce site affiche « n.d. » plutôt que d'inventer un chiffre.</div></div>
+      <div class="caution-item"><span>—</span><div><b>Ce n'est pas un outil d'alerte.</b> Pour la météo du jour et les vigilances en cours, utilisez <a href="https://www.alertes-meteo.com" target="_blank" rel="noopener">alertes-meteo.com</a>, pas ce site.</div></div>
+    </div>
+  </div>
+
+  <div class="card card-pad" style="margin-top:20px">
+    <h2>Sources, région par région</h2>
+    <p class="lede" style="margin-bottom:8px">Chaque page module renvoie aussi vers la fiche source exacte depuis le profil de chaque région.</p>
+    <ul class="source-list" id="source-list"></ul>
+  </div>
+
+  <p class="tag-note">Ce site est un projet indépendant, non affilié à Météo-France. Signalez toute erreur ou imprécision repérée dans les chiffres repris.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>&copy; 2026 — Site indépendant d'information sur le changement climatique en France.</span>
+    <span><a href="methode.html">Méthode et sources</a> · <a href="https://www.alertes-meteo.com" target="_blank" rel="noopener">alertes-meteo.com</a></span>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script>
+  const list = document.getElementById("source-list");
+  list.innerHTML = Object.values(REGIONS)
+    .sort((a, b) => a.nom.localeCompare(b.nom, "fr"))
+    .map((r) => `<li>${r.nom} — <a href="${r.source}" target="_blank" rel="noopener">fiche Météo-France ↗</a></li>`)
+    .join("");
+</script>
+</body>
+</html>

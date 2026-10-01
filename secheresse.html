@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sécheresse : jours de sol sec et pluies d'été par région — Changement climatique France</title>
+<meta name="description" content="Carte interactive des jours de sécheresse des sols et de l'évolution des pluies d'été projetés par Météo-France, région par région, à horizon 2050 et 2100." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='10' width='5' height='12' rx='1' fill='%23e2483d'/%3E%3Crect x='9.5' y='5' width='5' height='17' rx='1' fill='%23c9862f'/%3E%3Crect x='17' y='13' width='5' height='9' rx='1' fill='%232f80ed'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+<div class="top-gradient"></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <svg class="brand-logo" viewBox="0 0 24 24"><rect x="2" y="10" width="5" height="12" rx="1" fill="#c9862f"/><rect x="9.5" y="5" width="5" height="17" rx="1" fill="#c9862f"/><rect x="17" y="13" width="5" height="9" rx="1" fill="#2f80ed"/></svg>
+      <span class="brand-text"><strong>Changement climatique</strong><span>France · projections TRACC</span></span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="chaleur.html">Chaleur</a>
+      <a href="secheresse.html" class="active">Sécheresse</a>
+      <a href="feux-de-foret.html">Feux de forêt</a>
+      <a href="pluies-extremes.html">Pluies extrêmes</a>
+      <a href="methode.html">Méthode</a>
+      <a href="https://www.alertes-meteo.com" class="nav-cta" target="_blank" rel="noopener">Alertes météo ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero" style="--hazard:#c9862f">
+    <span class="eyebrow">Module 2 / 4 · Sécheresse</span>
+    <h1>Sécheresse des sols et pluies d'été</h1>
+    <p class="lede">Nombre de jours par an où l'humidité du sol est déficitaire, et recul du cumul de pluie en été (juin à août) — les deux indicateurs qui traduisent la tension croissante sur la ressource en eau, région par région.</p>
+  </section>
+
+  <div class="control-bar" style="--hazard:#c9862f">
+    <div class="control-group">
+      <div class="control-label">Horizon</div>
+      <div class="pill-toggle" id="horizon-toggle">
+        <button data-year="2050" class="active">2050 (+2,7 °C)</button>
+        <button data-year="2100">2100 (+4 °C)</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="control-label">Échelle de couleur</div>
+      <div class="pill-toggle" id="scale-toggle">
+        <button data-scale="relative" class="active">Relative</button>
+        <button data-scale="absolute">Fixe 2050-2100</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="control-label">Région</div>
+      <select id="region-select"></select>
+    </div>
+  </div>
+
+  <div class="map-layout" style="--hazard:#c9862f">
+    <div>
+      <div id="map"></div>
+      <div class="map-legend" id="legend"></div>
+    </div>
+    <div class="side-panel">
+      <div id="panel-content"><p class="placeholder">Survolez ou cliquez une région sur la carte pour afficher son profil détaillé.</p></div>
+      <div class="ranking">
+        <div class="rank-title">Classement des régions</div>
+        <div id="ranking-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="tag-note">Source : Météo-France, fiches climatiques régionales « Quel climat futur dans votre région ? », trajectoire TRACC, référence 1976-2005. Le lien vers la fiche officielle de chaque région est disponible dans son profil détaillé. Méthode complète et limites de lecture sur la page <a href="methode.html">Méthode</a>.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>&copy; 2026 — Site indépendant d'information sur le changement climatique en France.</span>
+    <span><a href="methode.html">Méthode et sources</a> · <a href="https://www.alertes-meteo.com" target="_blank" rel="noopener">alertes-meteo.com</a></span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/js/geo.js"></script>
+<script src="assets/js/data.js"></script>
+<script>const HAZARD_KEY = "secheresse";</script>
+<script src="assets/js/map.js"></script>
+</body>
+</html>
